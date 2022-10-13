@@ -14,7 +14,7 @@ public class CommentController {
     private final CommentRepository commentRepository;
 
     //댓글 생성 API
-    @PostMapping("/api/boards/{id}/comment")
+    @PostMapping("/api/comment")
     public Comment createComment(@RequestBody CommentRequestDto commentRequestDto) {
         //1. CommentRequestDto를 파라미터로 받는다.
         //2. Comment 객체를 생성한다.
@@ -26,7 +26,7 @@ public class CommentController {
     }
 
     //댓글 삭제 API
-    @DeleteMapping("/api/boards/{id}/comment") //URL 설정 확인 필요
+    @DeleteMapping("/api/comment/{id}") //URL 설정 확인 필요
     public String deleteComment(@PathVariable Long id) {
         //1. 저장된 댓글을 불러온다.
         //2. 정상적으로 댓글이 삭제되었음을 알수있는 값 return

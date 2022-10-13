@@ -1,7 +1,6 @@
 package com.example.board.domain;
 
 import com.example.board.dto.BoardRequestDto;
-import com.example.board.domain.User;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Getter;
 import lombok.NoArgsConstructor;

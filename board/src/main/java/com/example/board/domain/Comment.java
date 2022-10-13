@@ -1,7 +1,6 @@
 package com.example.board.domain;
 
 import com.example.board.dto.CommentRequestDto;
-import com.example.board.service.CommentService;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
@@ -26,18 +25,18 @@ public class Comment {
 
     @ManyToOne //댓글 입장에서는 한명의 User가 여러 댓글을 가질수 있음
     @JoinColumn(name="userId")
-    private User user;
+    private Member member;
 
-    public Comment(Long id, String content, Board board, User user) {
+    public Comment(Long id, String content, Board board, Member member) {
         this.id = id;
         this.content = content;
         this.board = board;
-        this.user = user;
+        this.member = member;
     }
 
     public Comment(CommentRequestDto requestDto) {
         this.id = getId();
-        this.user = getUser();
+        this.member = getMember();
         this.content = getContent();
         this.board = getBoard();
 

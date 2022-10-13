@@ -1,20 +1,20 @@
 package com.example.board.controller;
 
 import com.example.board.dto.SignupRequestDto;
-import com.example.board.service.UserService;
+import com.example.board.service.MemberService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 
 @Controller
-public class UserController {
+public class MemberController {
 
-    private final UserService userService;
+    private final MemberService memberService;
 
     @Autowired
-    public UserController(UserService userService) {
-        this.userService = userService;
+    public MemberController(MemberService memberService) {
+        this.memberService = memberService;
     }
 
     // 회원 로그인 페이지
@@ -32,7 +32,7 @@ public class UserController {
     // 회원 가입 요청 처리
     @PostMapping("/user/signup")
     public String registerUser(SignupRequestDto requestDto) {
-        userService.registerUser(requestDto);
+        memberService.registerUser(requestDto);
         return "redirect:/user/login";
     }
 }
